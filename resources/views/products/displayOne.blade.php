@@ -34,6 +34,9 @@ font-size: 22px;
 <!-- <span>{{ $product->category->name }}</span> <br> -->
 <span> {{ $product->quantity }}&nbsp Left</span> <br>
 <span class="maincontent"> ₹ {{ $product->price }}</span> <br>
+<span >  {{ $product->suitable_crops }}</span> <br>
+<span > {{ $product->reccomended_crops }}</span> 
+<span >  {{ $product->composition }}</span> <br>
 <form action="/add-to-cart" method="POST">
 @csrf
 <input type="hidden" name="product_id" value="{{$product->id}}">

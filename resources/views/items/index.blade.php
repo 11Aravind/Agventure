@@ -1,8 +1,11 @@
 @extends('layouts.layout')
 @section('content')
-<h2>Items</h2>
+<!-- <h2>Items</h2> -->
+<div class="top text-center"><h3>Items</h3></div>
+<div class="spacing" style="">
 @if ($items->count())
-<table>
+<table class="table striped">
+    <thead>
     <tr>
         <th>Item Name</th>
         <th>Item Description</th>
@@ -12,12 +15,13 @@
         <th>Update</th>
         <th>Delete</th>
     </tr>
-    
+    </thead>
+    <tbody>
 @foreach($items as $item)
 
 <tr>
    
-<td>
+<td scop="row">
 <a href="/farmer/item/{{ $item->id }}">
         {{
     $item->name
@@ -55,8 +59,9 @@
         </td>
         
     </tr>
-
+  
 @endforeach
+</tbody>
 </table>
 <a href="/farmer/create-item">Add new item</a>
 @else
@@ -64,4 +69,5 @@
 <br>
 <a href="/farmer/create-item">Add new item</a>
 @endif
+        </div>
 @endsection

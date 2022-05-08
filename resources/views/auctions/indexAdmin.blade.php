@@ -1,7 +1,11 @@
-@extends('layouts.layout')
+@extends('layouts.adminLayout')
 @section('content')
-<h2>Auctions</h2>
-<table>
+<!-- padding: 51px 41px 0px 41px; -->
+<div class="top text-center"><h3>Auctions</h3></div>
+<div class="spacing" style="">
+<!-- <h2></h2> -->
+<table class="table table-striped">
+<thead>
     <tr>
         <th>Item Name</th>
         <th>Item Description</th>
@@ -13,12 +17,13 @@
         <th>Approve</th>
         <th>Reject</th>
     </tr>
-    
+</thead>
+<tbody>
 @foreach($auctions as $auction)
 
 <tr>
    
-<td>
+<td scope="row">
 <a href="/admin/auction/{{ $auction->id }}">
         {{
     $auction->item->name
@@ -67,7 +72,8 @@
         </td>
         
     </tr>
-    
+    </tbody>
 @endforeach
 </table>
+</div>
 @endsection

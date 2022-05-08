@@ -1,7 +1,11 @@
 @extends('layouts.adminLayout')
 @section('content')
-<h2>Tips</h2>
-<table>
+<!-- <h2>Tips</h2> -->
+
+<div class="top"><h3>Tips</h3><a href="/admin/create-tip">Add Tips</a> </div>
+<div class="spacing">
+<table class="table table-striped">
+    <thead>
     <tr>
         <th>
             Titile
@@ -19,9 +23,12 @@
             Created At
         </th>
     </tr>
+    </thead>
+    <tbody>
+    <tr>
 @foreach($tips as $tip)
 
-<td>
+<td scop="row">
 <a href="/admin/tip/{{ $tip->id }}">
     {{ $tip->title }}
 </a>
@@ -40,5 +47,8 @@
     {{ $tip->created_at->diffForHumans() }}
 </td>
 @endforeach
+</tr>
+</tbody>
 </table>
+</div>
 @endsection

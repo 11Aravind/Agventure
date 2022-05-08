@@ -2,6 +2,7 @@
 @section('content')
 <!-- <h2> Categories </h2> -->
 <div class="top"><h3>Categories</h3><a href="/admin/create-category">Add new category</a></div>
+<div class="spacing">
 @if ($categories->count())
 <table class="table table-striped">
     <thead>
@@ -33,5 +34,5 @@
     <p>No categories yet. Please check back later.</p>
 @endif
 <br> 
-
+</div>
 @endsection

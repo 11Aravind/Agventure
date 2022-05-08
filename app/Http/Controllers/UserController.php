@@ -53,7 +53,7 @@ class UserController extends Controller
               $save = $user->save();
         
              if($save){
-                     return back()->with('success','New user has been successfuly created');
+                     return redirect('/auth/signin')->with('success','New user has been successfuly created Pleace Login');
              }else{
                      return back()->with('fail','Something went wrong, try again later');
              }

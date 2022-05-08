@@ -41,6 +41,6 @@
 @else
 <p>No products yet. Please check back later.</p>
 <br><br>
-<a href="/admin/create-machine">Add New Machine</a>
+<!-- <a href="/admin/create-machine">Add New Machine</a> -->
 @endif
 @endsection

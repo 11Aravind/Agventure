@@ -2,6 +2,7 @@
 @section('content')
 
 <div class="top"><h3>Products</h3><a href="/admin/create-product">Add a new product</a> </div>
+<div class="spacing">
 @if ($products->count())
 <!-- new temp -->
 <table class="table table-striped">
@@ -94,5 +95,5 @@
 @else
     <p>No products yet. Please check back later.</p>
 @endif
-
+</div>
 @endsection

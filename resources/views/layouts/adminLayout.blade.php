@@ -48,7 +48,8 @@
         display: flex;
 background-color: #f9f5f5;
 padding: 21px;
-margin: 56px;
+/* margin: 56px; */
+margin: 25px;
     }
     .top h3 {
   flex: .9;
@@ -56,6 +57,11 @@ margin: 56px;
 .error-msg{
     color:red;
 }
+.spacing{
+    /* padding: 51px 41px 0px 41px; */
+    padding: 0px 41px 0px 41px;
+}
+
     /* .side-bar{
         
         width: 20%;
@@ -70,9 +76,9 @@ margin: 56px;
     <!-- <h1>adminlayout</h1> -->
     <div class="top-navbar">
     <div class="left">
-       <h2>
-            <a href="/">Agventure</a>
-        </h2>
+       <h5>
+            <a href="/admin">Agventure</a>
+        </h5>
       </div>
         <div class="right">
         <a href="/admin/products">View Poducts</a>

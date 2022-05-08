@@ -1,133 +1,132 @@
 @extends('layouts.layout')
-
 @section('content')
+<style>
+  .checkout{
+    margin: 27px 114px 114px 114px;
+}
+ .add_newaddress{
+  border: none;
+    outline: none;
+    background: #f8f9fa;
+ } 
+</style>
+<div class="checkout shadow-none p-3 mb-5 bg-light rounded">
 <h2>Checkout</h2>
 
 <div>
 
 
-<h5> Add New Address<button onclick="toggleAdressForm()"> + </button></h5>
-<div id="address" style="display:none">
+<h5 > Add New Address<button class="add_newaddress" onclick="toggleAdressForm()"> + </button></h5>
+<div id="address" class="shadow-none p-3 mb-5 bg-light rounded" style="display:none">
 <form action="/checkout/create-address" method="POST">
   @csrf
-    <label for="name">Full Name</label> <br>
-    <input type="text" name="name"><br>
-    <span>@error('name') 
-        
-        {{ $message }}
+<!-- new  -->
+<div class="row">
+    <div class="col">
+    <label for="name">Full Name</label> 
+    <input  class="form-control"  type="text" name="name"><br>
+    <span>@error('name') {{ $message }}  @enderror</span>     </div>
+    <div class="col">
+    <label for="phone">Phone</label> 
+    <input  class="form-control"  type="text" name="phone"><br>
+    <span>@error('phone'){{ $message }}@enderror</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+    <label for="house_name">House Name</label> 
+    <input  class="form-control"  type="text" name="house_name"><br>
+    <span>@error('house_name') {{ $message }}@enderror</span>     </div>
+    <div class="col">
+    <label for="street">Street</label> 
+        <input  class="form-control"  type="text" name="street"><br>
+        <span>@error('street') { $message }}@enderror</span>  
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+    <label for="pincode">Pincode</label> 
+        <input  class="form-control"  type="text" name="pincode"><br>
+        <span>@error('pincode') {{ $message }}@enderror</span>     </div>
+    <div class="col">
+    <label for="city">City</label> 
+        <input class="form-control"   type="text" name="city"><br>
+        <span>@error('city') {{ $message }} @enderror</span>   
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+    <label for="district">District</label> 
+        <input  class="form-control" type="text" name="district"><br>
+        <span>@error('district') {{ $message }}@enderror</span>    </div>
+    <div class="col">
+    <label for="state">State</label> 
+        <input class="form-control"  type="text" name="state"><br>
+        <span>@error('state'){{ $message }}@enderror</span>   
+    </div>
+  </div>
+<!-- end  -->
+ 
+         
     
-        @enderror</span> <br>
-        <label for="phone">Phone</label> <br>
-    <input type="text" name="phone"><br>
-    <span>@error('phone') 
-        
-        {{ $message }}
-    
-        @enderror</span> <br>
-    <label for="house_name">House Name</label> <br>
-    <input type="text" name="house_name"><br>
-    <span>@error('house_name') 
-        
-        {{ $message }}
-    
-        @enderror</span> <br>
-        <label for="street">Street</label> <br>
-        <input type="text" name="street"><br>
-        <span>@error('street') 
-        
-        {{ $message }}
-    
-        @enderror</span> <br>
-        <label for="pincode">Pincode</label> <br>
-        <input type="text" name="pincode"><br>
-        <span>@error('pincode') 
-        
-        {{ $message }}
-    
-        @enderror</span> <br>
-        <label for="city">City</label> <br>
-        <input type="text" name="city"><br>
-        <span>@error('city') 
-        
-        {{ $message }}
-    
-        @enderror</span> <br>
-        <label for="district">District</label> <br>
-        <input type="text" name="district"><br>
-        <span>@error('district') 
-        
-        {{ $message }}
-    
-        @enderror</span> <br>
-        <label for="state">State</label> <br>
-        <input type="text" name="state"><br>
-        <span>@error('state') 
-        
-        {{ $message }}
-    
-        @enderror</span> <br>
-        <input type="submit" value="add" name="submit">
+      
+
+     
+       
+
+        <input type="submit"  class="btn btn-success"value="add" name="submit">
 </form>
 </div>
-<br><br>
-
-
+<br>
+<!-- <br><br> -->
 <form action="/checkout" method="POST">
 @csrf
 
-<h4>Select address</h4> <br>
+<h5>Select address</h5> <br>
     @foreach($addresses as $address)
-    <input type="radio" name="selected_address" value="{{ $address->id }}" >  <span>{{ $address->name}},{{ $address->phone}}, {{ $address->house_name}},
+    <input type="radio" name="selected_address" value="{{ $address->id }}" >  
+    <span>{{ $address->name}},{{ $address->phone}}, {{ $address->house_name}},
         {{ $address->street}},{{ $address->city}},{{ $address->district }},{{ $address->state }},
         {{ $address->pincode }}. 
         <!-- <a href="/checkout/update-address/{{$address->id}}">Edit</a>  -->
         <a href="/checkout/delete-address/{{$address->id}}">Delete</a></span> <br>
     @endforeach
-    <span>@error('selected_address') 
-        
-        {{ $message }}
-    
-        @enderror</span> <br>
+    <span>@error('selected_address') {{ $message }}@enderror</span> <br>
 </div>
-
-
 <label for="payment_method">Payment Method</label><br>
-<input  type="radio" name="payment_method" value="card" onclick="displayPaymentForm()">Credit/Debit/ATM Card<br>
-<input  type="radio" name="payment_method" value="cod" onclick="hidePaymentForm()">COD<br>
-<div id="payment" style="display:none">
+<input  type="radio" name="payment_method" value="card" onclick="displayPaymentForm()">&nbsp &nbsp  Credit/Debit/ATM Card<br> 
 
-
+<div id="payment" class="shadow-none p-3 mb-5 bg-light rounded" style="display:none">
 <h5>Add Payment Details</h5>
-<label for="card_number">Card Number</label> <br>
-<input type="text" name="card_number" > <br>
-<span>@error('card_number') 
-        
-        {{ $message }}
-    
-        @enderror</span> <br>
-<label for="expiry_month">Expiry Month</label> <br>
-<input type="text" name="expiry_month"><br>
-<span>@error('expiry_month') 
-        
-        {{ $message }}
-    
-        @enderror</span> <br>
-<label for="expiry_year">Expiry Year</label> <br>
-<input type="text" name="expiry_year"><br>
-<span>@error('expiry_year') 
-        
-        {{ $message }}
-    
-        @enderror</span> <br>
-<label for="cvv">CVV</label> <br>
-<input type="password" name="cvv"><br>
-<span>@error('cvv') 
-        
-        {{ $message }}
-    
-        @enderror</span> <br>
+<!-- new  -->
+<div class="row">
+    <div class="col">
+    <label for="card_number">Card Number</label> 
+<input type="text" class="form-control" name="card_number" > <br>
+<span>@error('card_number') {{ $message }}@enderror</span>  
+     </div>
+    <div class="col">
+    <label for="expiry_month">Expiry Month</label> 
+<input type="text" class="form-control" name="expiry_month"><br>
+<span>@error('expiry_month'){{ $message }} @enderror</span>  
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+    <label for="expiry_year">Expiry Year</label> 
+<input type="text" class="form-control" name="expiry_year"><br>
+<span>@error('expiry_year'){{ $message }} @enderror</span>  
+     </div>
+    <div class="col">
+    <label for="cvv">CVV</label> 
+<input type="password" class="form-control" name="cvv"><br>
+<span>@error('cvv'){{ $message }}@enderror</span> 
+    </div>
+  </div>
+<!-- new end  -->
 </div>
-<input type="submit" value="PROCEED" name="submit">
+<input  type="radio" name="payment_method" value="cod" onclick="hidePaymentForm()">&nbsp  &nbspCOD<br>
+<input type="submit" value="PROCEED" class="btn btn-success" style="margin-top: 12px;" name="submit">
 </form>
 
 @if(Session::has('stripe_error'))
@@ -159,4 +158,5 @@ function hidePaymentForm() {
 }
 
 </script>
+</div>
 @endsection

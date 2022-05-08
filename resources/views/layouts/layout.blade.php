@@ -64,10 +64,35 @@ img .d-block.w-100 {
     align-items: center;
     
 }    */
+.bar{
+    background: #6dc36d;height: 23px;
+    display:flex;
+    color:white;
+}
+.bar a{
+    text-decoration:none;
+    color:white;
+    padding: 16px;
+}
+.contact{
+    margin-left: 68px;
+    flex:.9;
+}
+.top-nav-bar{
+    border-bottom: 1px solid #eee;
+}
     </style>
     </head>
 
     <body class="content">
+    <div class="bar" style="">
+<div class="contact">
+0468-12345566 &nbsp aravind@gmail.com
+</div>   
+<div class="menus"><a href="#">about</a>
+<a href="#">about</a>
+<a href="#">complaint</a></div> 
+</div>
         <ul class="top-nav-bar">
             <a id="list-elements"href="/"><h3>Agventure</h3></a>            
             <div class="img-with-text">
@@ -111,11 +136,26 @@ img .d-block.w-100 {
         <br>
         <!-- <a id="list-elements"href="/cart"  class="categoryname">Cart </p> -->
         </div>
-            Welocme , user {{ Session::get('loggedUser') }}
-            <a id="list-elements" href="/auth/logout">Logout</a>
+<!-- drop down  -->
+<div class="dropdown">
+  <p id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <img src="Template_asset/images/userpic.png" alt="userpic" style="width: 32px;
+    height: 22px;">
+  </p>
+  <div class="dropdown-menu" aria-labelledby="dLabel">
+  <a href="#" class="submenu">Welocme , user {{ Session::get('loggedUser') }}</a> <br>
+  <hr>
+  <a id="list-elements" class="submenu" href="/auth/logout">Logout</a>
+            <!-- <a class="submenu" href="/Logout">Logout</a> -->
+  </div>
+</div>
+<!-- drop down end  -->
+        
+            <!-- Welocme , user {{ Session::get('loggedUser') }} -->
+            <!-- <a id="list-elements" href="/auth/logout">Logout</a> -->
                 @else
                 <div class="img-with-text" style="margin-top: 31px;">
-    <a href="/auth/signin" tyle="color: white;" id="list-elements">Signin</a>
+    <a href="/auth/signin" tyle="color: white;" class="btn btn-light" id="list-elements">Signin</a>
 </div>
             @endif
         </ul>

@@ -1,6 +1,7 @@
 @extends('layouts.adminLayout')
 @section('content')
-<h2>Orders</h2>
+<!-- <h2>Orders</h2> -->
+<div class="top text-center"><h3>Orders</h3></div>
 @foreach($orders as $order)
 <div>
 

@@ -35,6 +35,11 @@
     <span>@error('item_image'){{ $message }} @enderror</span> 
   </div>
 </div>
+<div class="col-12">
+<label for="item_description">Item Description </label>
+<textarea name="item_description" id="" cols="3" rows="5" class="form-control"></textarea>
+
+</div>
     <!-- ne wnd  -->
  
    

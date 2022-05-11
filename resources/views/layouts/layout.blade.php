@@ -81,6 +81,20 @@ img .d-block.w-100 {
 .top-nav-bar{
     border-bottom: 1px solid #eee;
 }
+.spacing{
+    /* padding: 51px 41px 0px 41px; */
+    padding: 0px 41px 0px 41px;
+}
+        .top{
+        display: flex;
+background-color: #f9f5f5;
+padding: 21px;
+/* margin: 56px; */
+margin: 25px;
+    }
+    .top h3 {
+  flex: .9;
+}
     </style>
     </head>
 
@@ -88,10 +102,12 @@ img .d-block.w-100 {
     <div class="bar" style="">
 <div class="contact">
 0468-12345566 &nbsp aravind@gmail.com
-</div>   
-<div class="menus"><a href="#">about</a>
-<a href="#">about</a>
-<a href="#">complaint</a></div> 
+</div>
+   
+<div class="menus"><a href="/tips">Tips</a>
+<a href="/auctions">Auction</a>
+<a href="/guidelines">Guideline</a>
+<a href="/user/create-complaint">complaint</a></div> 
 </div>
         <ul class="top-nav-bar">
             <a id="list-elements"href="/"><h3>Agventure</h3></a>            
@@ -139,13 +155,16 @@ img .d-block.w-100 {
 <!-- drop down  -->
 <div class="dropdown">
   <p id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <img src="Template_asset/images/userpic.png" alt="userpic" style="width: 32px;
-    height: 22px;">
+    <img src="https://thumbs.dreamstime.com/b/businessman-avatar-image-beard-hairstyle-male-profile-vector-illustration-178545831.jpg" 
+    alt="userpic" style="width: 43px;
+    height: 43px;
+    margin-right: 15px;
+    margin-top: 9px;">
   </p>
-  <div class="dropdown-menu" aria-labelledby="dLabel">
-  <a href="#" class="submenu">Welocme , user {{ Session::get('loggedUser') }}</a> <br>
+  <div class="dropdown-menu"  style="transform: translate3d(-124px, 55px, 0px);"aria-labelledby="dLabel">
+  <span class="submenu"style="padding: 14px;">Welocme , user {{ Session::get('loggedUser') }}</span> <br>
   <hr>
-  <a id="list-elements" class="submenu" href="/auth/logout">Logout</a>
+  <a id="list-elements" style="padding: 14px;"class="submenu" href="/auth/logout">Logout</a>
             <!-- <a class="submenu" href="/Logout">Logout</a> -->
   </div>
 </div>

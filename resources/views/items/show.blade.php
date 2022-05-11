@@ -1,29 +1,45 @@
 @extends('layouts.layout')
 @section('content')
-<h2>Item</h2>
-<p>
-    {{
-        $item->name
-    }}
-    <br>
-    {{
-        $item->description
-    }}
-    <br>
-    {{
-        $item->quantity
-    }}<br>
-    {{
-                $item->user->user_name
-
-            }} <br>
-    {{
-        $item->price
-    }}<br>
+<!-- new temp  -->
+<style>
+    .maindiv{
+        display:flex;
+        margin: 23px;
+    }
+    .left{
+        flex: .4;
+    }
+    .right{
+        flex:.6;
+        padding: 24px;
+    }
+    .maincontent{
+        font-weight: bolder;
+font-size: 22px;
+    }
+    #addtocart{
+        color:white;
+        background-color: green;
+        margin-top: 9px;
+    }
+</style>
+<!-- <h2>product</h2> -->
+<div class="maindiv">
+    <div class="left">
     <img src="{{
-    asset('images/'. $item->image)
-}}" alt="{{ $item->image }} " height="80px">
+    asset('images/'. $item->image)}}" style="  margin-left: 144px;"alt="{{ $item->image }}" height="250px">
+    </div>
+    <div class="right">
+    <span class="maincontent"> {{ $item->name }}</span> <br>
+<span>{{ $item->description }}</span> <br>
 
-<br>
-</p>
+<span> {{ $item->quantity }}&nbsp Left</span> <br>
+<span class="maincontent"> {{$item->user->user_name}}</span> <br>
+<span >  {{  $item->price }}</span> <br>
+
+
+    </div>
+</div>
+<!-- end temp  -->
+
 @endsection

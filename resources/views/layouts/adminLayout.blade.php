@@ -21,8 +21,15 @@
         margin:0px;
         padding:0px
     }
+ 
+    .submenu{
+        background: teal;
+    }
     .top-navbar{
-        background-color: black;
+        background: teal;
+    }
+    .top-navbar{
+        /* background-color: black; */
         width:100%;
         /* height: 77px; */
         padding: 19px 74px;

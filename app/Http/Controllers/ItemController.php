@@ -34,14 +34,14 @@ class ItemController extends Controller
     public function store(Request $request){
 
 
-        $validatedData = $request->validate([
+        // $validatedData = $request->validate([
 
-            'item_name' => 'required|min:2',
-            'item_description' => 'required',
-            'category' => 'required',
-            'quantity' => 'required',
-            'item_image' => 'required|mimes:jpg,png,jpeg|max:5048',
-        ]);
+        //     'item_name' => 'required|min:2',
+        //     'item_description' => 'required',
+        //     'category' => 'required',
+        //     'quantity' => 'required',
+        //     'item_image' => 'required|mimes:jpg,png,jpeg|max:5048',
+        // ]);
         $newImageName = time().'-'. $request->item_name.'.'. 
         $request->item_image->extension();
 

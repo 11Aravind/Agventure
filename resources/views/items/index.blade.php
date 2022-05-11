@@ -1,7 +1,10 @@
 @extends('layouts.layout')
 @section('content')
+
 <!-- <h2>Items</h2> -->
-<div class="top text-center"><h3>Items</h3></div>
+<!-- <div class="top"><h3> Items</h3></div> -->
+<div class="top"><h3> Items</h3><a href="/farmer/create-item">Add new Items</a></div>
+<!-- <div class="top text-center"><h3>Items</h3></div> -->
 <div class="spacing" style="">
 @if ($items->count())
 <table class="table striped">
@@ -63,7 +66,7 @@
 @endforeach
 </tbody>
 </table>
-<a href="/farmer/create-item">Add new item</a>
+<!-- <a href="/farmer/create-item">Add new item</a> -->
 @else
 <p>No items yet. Please check back later.</p>
 <br>

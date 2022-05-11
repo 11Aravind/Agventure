@@ -1,7 +1,11 @@
 @extends('layouts.layout')
 @section('content')
-<h2>Auctions</h2>
-<table>
+
+<!-- <h2>Auctions</h2> -->
+<div class="top"><h3>Auctions Items</h3></div>
+<div class="spacing" style="">
+<table class="table striped">
+    <thead>
     <tr>
         <th>Item Name</th>
         <th>Item Description</th>
@@ -14,12 +18,13 @@
         <th>Update</th>
         <th>Delete</th>
     </tr>
-    
+    </thead>
+    <tbody>
 @foreach($auctions as $auction)
 
 <tr>
    
-<td>
+<td scop="row">
 <a href="/farmer/auction/{{ $auction->id }}">
         {{
     $auction->item->name
@@ -57,6 +62,11 @@
             }}
         </td>
       @endif
+      <td>
+          {{
+            $auction->started_at
+          }}
+      </td>
         <td>
             {{
                 $auction->status
@@ -77,5 +87,7 @@
     </tr>
     
 @endforeach
+</tbody>
 </table>
+        </div>
 @endsection

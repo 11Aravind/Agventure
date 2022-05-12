@@ -70,7 +70,7 @@
 @else
 <p>No items yet. Please check back later.</p>
 <br>
-<a href="/farmer/create-item">Add new item</a>
+<!-- <a href="/farmer/create-item">Add new item</a> -->
 @endif
         </div>
 @endsection

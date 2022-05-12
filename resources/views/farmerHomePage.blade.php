@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-<style>
+<!-- <style>
     .submenu a {
     padding: 13px;
     color: white;
@@ -16,16 +16,17 @@ background: #6dc36d;
     padding: 22px;
     color: white;
 }
-</style>
+</style> -->
 <!-- <h2>Admin Home Page</h2> -->
-<div class="submenu"style="">
-<a href="/farmer/items">View Items</a>
+<!-- <div class="submenu"style=""> -->
+<h1>farmer dashbord</h1>
+<!-- <a href="/farmer/items">View Items</a>
 
-<a href="/farmer/auctions">View Auction</a>
+<a href="/farmer/auctions">View Auction</a> -->
 <!--<a href="/admin/guidelines">View Guidelines</a>
 <a href="/admin/tips">View Tips</a>
 <a href="/admin/auctions">View Auctions</a>  -->
-</div>
+<!-- </div> -->
 
 <!-- <h2>Farmer Home Page</h2> -->
 

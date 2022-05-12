@@ -31,7 +31,7 @@ font-size: 22px;
     <div class="right">
     <span class="maincontent"> {{ $product->name }}</span> <br>
 <span>{{ $product->description }}</span> <br>
-<!-- <span>{{ $product->category->name }}</span> <br> -->
+
 <span> {{ $product->quantity }}&nbsp Left</span> <br>
 <span class="maincontent"> ₹ {{ $product->price }}</span> <br>
 <span >  {{ $product->suitable_crops }}</span> <br>

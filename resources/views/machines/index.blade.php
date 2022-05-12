@@ -2,7 +2,7 @@
 @section('content')
 <h2></h2>
 <div class="top"><h3>Machines</h3><a href="/admin/create-machine">Add New Machine</a></div>
-
+<div class="spacing">
 @if ($machines->count())
 <table class="table table-striped">
 <thead>
@@ -38,7 +38,9 @@
 <!-- <p></p> -->
 @endforeach
 </table>
+
 @else
+</div>
 <p>No products yet. Please check back later.</p>
 <br><br>
 <!-- <a href="/admin/create-machine">Add New Machine</a> -->

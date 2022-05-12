@@ -2,6 +2,7 @@
 @section('content')
 <!-- padding: 51px 41px 0px 41px; -->
 <div class="top text-center"><h3>Auctions</h3></div>
+@if ($auctions->count())
 <div class="spacing" style="">
 <!-- <h2></h2> -->
 <table class="table table-striped">
@@ -76,4 +77,8 @@
 @endforeach
 </table>
 </div>
+
+@else
+    <p>No products yet. Please check back later.</p>
+@endif
 @endsection

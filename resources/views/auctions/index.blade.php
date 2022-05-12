@@ -4,6 +4,7 @@
 <!-- <h2>Auctions</h2> -->
 <div class="top"><h3>Auctions Items</h3></div>
 <div class="spacing" style="">
+@if( $auctions->count() > 0)
 <table class="table striped">
     <thead>
     <tr>
@@ -17,6 +18,7 @@
         <th>Image</th>
         <th>Update</th>
         <th>Delete</th>
+        <th>Result</th>
     </tr>
     </thead>
     <tbody>
@@ -31,14 +33,14 @@
         }}</a>
         </td>
 
-        
+
         <td>
-        {{
+            {{
     $auction->item->description
 }}
 
         </td>
-       
+
         <td>
             {{
                 $auction->starting_amount
@@ -55,25 +57,21 @@
 
             }}
         </td>
-      @if($auction->started_at)
-      <td>
-            {{
-                $auction->started_at->diffForHumans()
-            }}
+
+        <td>
+            @if($auction->started_at )
+            {{$auction->started_at->diffForHumans()}}
+            @else
+            Not yet started
+            @endif
         </td>
-      @endif
-      <td>
-          {{
-            $auction->started_at
-          }}
-      </td>
         <td>
             {{
                 $auction->status
             }}
         </td>
         <td>
-        <img src="{{
+            <img src="{{
            asset('images/'. $auction->item->image)}}" alt="{{ $auction->item->image }} " height="40px">
 
         </td>
@@ -83,11 +81,17 @@
         <td>
             <a href="/farmer/delete-auction/{{ $auction-> id }}">Delete</a>
         </td>
-        
+        <td>
+            <a href="auction/results/{{ $auction->id }}">Result</a>
+        </td>
+
     </tr>
     
 @endforeach
 </tbody>
 </table>
         </div>
+        @else
+<p>No auctions yet. Please check back later.</p>
+@endif
 @endsection

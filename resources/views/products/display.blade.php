@@ -2,19 +2,21 @@
 @section('content')
 <div class="container">
 <center style="padding: 18px 0px 0px 0px;">
-  <h1> Products</h1>
+<br> 
+  <h2> Products</h2>
+  <br>
 </center>
 @if ($products->count())
 
     @foreach($products as $product)</a>
-    <div class="row" style="">
+    <div class="row" >
 <!-- new template  -->
 
   <div class="col-sm-3" style="padding: 18px 30px 11px 45px;">
   <a href="/product/{{ $product->id }}">
 
   <div class="card" style="width: 15rem;">
-  <img class="card-img-top" src="{{ asset('images/'. $product->image) }}"" alt="{{ $product->name }}"style="width:275;height:185px;">
+  <img class="card-img-top" src="{{ asset('images/'. $product->image) }}" alt="{{ $product->name }}"style="width:275;height:185px;">
   <div class="card-body" style="padding:.8rem">
     <p class="card-text">
     <div class="product-shop">
@@ -45,7 +47,9 @@
     @endforeach
    
 @else
+<center style="padding: 18px 0px 0px 0px;">
     <p>No products yet. Please check back later.</p>
+</center>
 @endif
 </div>
 @endsection

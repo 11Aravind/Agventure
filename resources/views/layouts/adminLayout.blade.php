@@ -88,18 +88,44 @@ margin: 25px;
         </h5>
       </div>
         <div class="right">
+        <a href="/admin/categories">View Categories</a>
         <a href="/admin/products">View Poducts</a>
         <a href="/admin/machines">View Machines</a>
-        <a href="/admin/categories">View Categories</a>
-    @if(Session::get('loggedUser'))
-    <a href="/auth/logout">Logout</a>
+       
+<!-- drop down  -->
+<div class="dropdown" style="     cursor: pointer;   display: inline-flex;">
+  <p id="dLabel" type="button" style="color:white"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  Other
+  </p>
+  <div class="dropdown-menu" style="transform: translate3d(-107px, 52px, 0px); position: absolute; top: 0px; left: 0px; will-change: transform;" aria-labelledby="dLabel" x-placement="bottom-start">
+<a href="/admin/user-profiles" class="" style="color:black;padding: 14px;">View_Users</a>
+  <hr>
+  <a href="/admin/orders" style="color:black;padding: 14px;">View Orders</a> <hr>
+<a href="/admin/guidelines" style="color:black;padding: 14px;">View Guidelines</a> <hr>
+<a href="/admin/tips" style="color:black;padding: 14px;">View Tips</a> <hr>
+<a href="/admin/auctions" style="color:black;padding: 14px;">View Auctions</a>   <hr>
+@if(Session::get('loggedUser'))
+    <a href="/auth/logout" style="color:black;padding: 14px;">Logout</a>
     @endif
+  <!-- <a id="list-elements" style="padding: 14px;" style="padding: 14px;" class="" href="/auth/logout">Logout</a> -->
+            <!-- <a class="submenu" href="/Logout">Logout</a> -->
+  </div>
+</div>
+<!-- drop down end  -->
+
+
+
+
+
+ 
 </div>
     
     </div>
     <div class="content">
     @yield('content')
     </div>
-   
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" ></script>
 </body>
 </html>

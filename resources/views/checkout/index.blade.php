@@ -83,10 +83,15 @@
 @csrf
 
 <h5>Select address</h5> <br>
+<!-- @if(Session::get('success'))
+<input type="hidden" name="auction_id" value="{{ Session::get('auctionId') }}">
+@endif -->
+
+<!-- <h4>Select address</h4> <br> -->
     @foreach($addresses as $address)
     <input type="radio" name="selected_address" value="{{ $address->id }}" >  
-    <span>{{ $address->name}},{{ $address->phone}}, {{ $address->house_name}},
-        {{ $address->street}},{{ $address->city}},{{ $address->district }},{{ $address->state }},
+    <span>{{ $address->name}}, <br> {{ $address->house_name}},<br>
+        {{ $address->street}},{{ $address->city}},{{ $address->district }}, <br>{{ $address->state }},,{{ $address->phone}}
         {{ $address->pincode }}. 
         <!-- <a href="/checkout/update-address/{{$address->id}}">Edit</a>  -->
         <a href="/checkout/delete-address/{{$address->id}}">Delete</a></span> <br>

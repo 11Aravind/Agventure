@@ -15,6 +15,12 @@
     font-family: 'Montserrat', sans-serif;
     font-family: 'Quicksand', sans-serif;
 }  
+.errormsg{
+    color:red;
+}
+.success{
+    color:green;
+}
     
 img .d-block.w-100 {
     height: 500px;
@@ -34,6 +40,7 @@ img .d-block.w-100 {
     padding: 0px 0px 15px 0px;
     display: flex;
     margin-bottom: 0px;
+    background-color: #f2f2f2;
   
             }
 .categoryImag{
@@ -48,22 +55,25 @@ img .d-block.w-100 {
     border: none;
     border-bottom:1px solid black;
     outline: none;
+    background-color: #f2f2f2;
 }
-#list-elements {
+
+#list-elements{
     text-decoration: none;
     color: black;
     flex: 1;
     border-radius: 7px;
-    font-width: 17px;
+    font-size: 17px;
     padding: 8px;
 }
-/* .footer{
+
+.footer{
     padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     
-}    */
+}    
 .bar{
     background: #6dc36d;height: 23px;
     display:flex;
@@ -107,6 +117,7 @@ margin: 25px;
 <div class="menus"><a href="/tips">Tips</a>
 <a href="/auctions">Auction</a>
 <a href="/guidelines">Guideline</a>
+<a href="/weather">Weather</a>
 <a href="/user/create-complaint">complaint</a></div> 
 </div>
         <ul class="top-nav-bar">
@@ -134,12 +145,36 @@ margin: 25px;
     <img class="categoryImag"src=" {{ asset('tractor-black.png') }}  " alt="machines" /></a> <br>
     <a id="list-elements"href="/machines"  class="categoryname">Machines</a>
 </div>
+@if(Session::get('role')=='farmer')
+<!-- <div class="img-with-text">
+<a href="/machines">
+    <img class="categoryImag"src=" {{ asset('tractor-black.png') }}  " alt="machines" /></a> <br>
+    <a id="list-elements"href="/machines"  class="categoryname">Other</a>
+</div> -->
 
-           
+<!-- new  -->
+<!-- drop down  -->
+<div class="dropdown" style="    cursor: pointer;">
+  <p id="dLabel" id="list-elements"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   Other
+  </p>
+  <div class="dropdown-menu"  style="transform: translate3d(-124px, 55px, 0px);"aria-labelledby="dLabel">
+
+  <a href="/farmer/items" class="submenu"style="padding: 14px;">View Items</a>
+<hr>
+<a href="/farmer/auctions" class="submenu"style="padding: 14px;">View Auction</a>
+
+  
+            <!-- <a class="submenu" href="/Logout">Logout</a> -->
+  </div>
+</div>
+<!-- drop down end  -->
+@endif
+<!-- {{ Session::get('loggedUser') }}  -->
 
 <form action="/products" method="GET">
             
-            <input type="text" class="searchBox"name="search" 
+            <input type="text" class="searchBox" name="search" 
             placeholder="Search..."
             value="{{ request('search') }}">
             <!-- <img class="searchimg"src="{{ asset('assets/search.png') }}    " alt="search"> -->
@@ -181,9 +216,9 @@ margin: 25px;
     @yield('content')
     <footer class="footer">
       
-       <!-- <span class="footer-content">&copy;Agventure</span> -->
+       <span class="footer-content">&copy;Agventure</span>
      
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" ></script>
     </footer>

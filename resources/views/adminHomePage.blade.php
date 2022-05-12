@@ -17,12 +17,12 @@
 }
 </style>
 <!-- <h2>Admin Home Page</h2> -->
-<div class="submenu"style="">
+<!-- <div class="submenu"style="">
 <a href="/admin/user-profiles">View Users</a>
 
 <a href="/admin/orders">View Orders</a>
 <a href="/admin/guidelines">View Guidelines</a>
 <a href="/admin/tips">View Tips</a>
 <a href="/admin/auctions">View Auctions</a> 
-</div>
+</div> -->
 @endsection

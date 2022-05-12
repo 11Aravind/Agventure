@@ -36,11 +36,18 @@ img .d-block.w-100 {
 .redbtn{
     background:#f35121;
 }
+.top{
+        display: flex;
+background-color: #f9f5f5;
+padding: 21px;
+/* margin: 56px; */
+margin: 25px;
+    }
 .top-nav-bar{
     padding: 0px 0px 15px 0px;
     display: flex;
     margin-bottom: 0px;
-    background-color: #f2f2f2;
+    /* background-color: #f2f2f2; */
   
             }
 .categoryImag{
@@ -55,7 +62,7 @@ img .d-block.w-100 {
     border: none;
     border-bottom:1px solid black;
     outline: none;
-    background-color: #f2f2f2;
+    /* background-color: #f2f2f2; */
 }
 
 #list-elements{
@@ -68,7 +75,7 @@ img .d-block.w-100 {
 }
 
 .footer{
-    padding: 20px;
+    padding: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,7 +99,7 @@ img .d-block.w-100 {
     border-bottom: 1px solid #eee;
 }
 .spacing{
-    /* padding: 51px 41px 0px 41px; */
+    /* padding: 51px 41px 0px 41px;
     padding: 0px 41px 0px 41px;
 }
         .top{
@@ -104,6 +111,14 @@ margin: 25px;
     }
     .top h3 {
   flex: .9;
+    background-color: #b2b2b2;
+    bottom: 0px;
+}  */
+.errormsg{
+    color: red;
+}
+.successmsg{
+    color: green;
 }
     </style>
     </head>
@@ -117,7 +132,9 @@ margin: 25px;
 <div class="menus"><a href="/tips">Tips</a>
 <a href="/auctions">Auction</a>
 <a href="/guidelines">Guideline</a>
-<a href="/weather">Weather</a>
+<a href="/soil-test/create-soil-test">soil Text</a>
+<a href="/weather">weather</a>
+
 <a href="/user/create-complaint">complaint</a></div> 
 </div>
         <ul class="top-nav-bar">
@@ -155,10 +172,10 @@ margin: 25px;
 <!-- new  -->
 <!-- drop down  -->
 <div class="dropdown" style="    cursor: pointer;">
-  <p id="dLabel" id="list-elements"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <p id="dLabel" id="list-elements"  style="margin-right: 18px;margin-top: 35px;"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
    Other
   </p>
-  <div class="dropdown-menu"  style="transform: translate3d(-124px, 55px, 0px);"aria-labelledby="dLabel">
+  <div class="dropdown-menu"  style="transform: translate3d(-117px, 55px, 0px);"aria-labelledby="dLabel">
 
   <a href="/farmer/items" class="submenu"style="padding: 14px;">View Items</a>
 <hr>
@@ -216,7 +233,7 @@ margin: 25px;
     @yield('content')
     <footer class="footer">
       
-       <span class="footer-content">&copy;Agventure</span>
+       <!-- <span class="footer-content">&copy;Agventure</span> -->
      
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>

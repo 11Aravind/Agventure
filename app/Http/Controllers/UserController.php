@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\User;
-use Illuminate\Support\Facades\Redirect;
+
 
 class UserController extends Controller
 {
@@ -35,8 +35,9 @@ class UserController extends Controller
     public function store(Request $request){
 
         $validatedData = $request->validate([
-            'first_name'=>'required|min:2',
-            'last_name'=>'required',
+
+            'first_name'=>'required|min:2|max:20|alpha',
+            'last_name'=>'required|min:2|max:20|alpha',
             'email'=>'required|email|unique:users',
             'phone'=>'required|digits:10|unique:users',
             'password'=>'required|min:6|max:14',
@@ -115,6 +116,13 @@ class UserController extends Controller
 
     public function change(Request $request){
 
+        $request->validate([
+        'name'=>'required|min:2|max:20|alpha',
+        'email'=>'required|email|unique:users',
+        'phone'=>'required|digits:10|unique:users',
+        'password'=>'required|min:6|max:14',
+    ]);
+
 
               $id = $request->session()->get('loggedUser');
               $user = User::findOrFail($id);
@@ -125,7 +133,7 @@ class UserController extends Controller
               $save = $user->save();
         
              if($save){
-                     return back()->with('success','User has been successfuly updated');
+                     return back()->with('success','User has been successfuly updated!');
              }else{
                      return back()->with('fail','Something went wrong, please try again later');
              }

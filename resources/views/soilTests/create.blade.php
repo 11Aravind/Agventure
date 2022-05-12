@@ -1,11 +1,15 @@
 @extends('layouts.layout')
 @section('content')
-<h2>Create Soil Test Appointment</h2>
-
+<!-- <h2 class="text-center">Create Soil Test Appointment</h2> -->
+<div class="container shadow-none p-3 mb-5 bg-light rounded" style="margin-left: 10%; margin-top: 76px;">
+<h2 class="">Create Soil Test Appointment</h2>
 <form action="/soil-test/create-soil-test" method="POST">
 @csrf
+
+  <div class="form-row">
+    <div class="col">
     <label for="month">Select a month</label>
-    <select name="month" >
+    <select name="month" class="form-control" >
     <option value="month" selected disabled  style="color:gray">month</option>
     <option value="1">JAN</option>
     <option value="2">FEB</option>
@@ -19,11 +23,12 @@
     <option value="10">OCT</option>
     <option value="11">NOV</option>
     <option value="12">DEC</option>
-    </select> <br>
-@error('month'){{ $message }}@enderror <br>
-
-<label for="day">Select a date</label>
-<select name="day" >
+    </select> 
+@error('month'){{ $message }}@enderror 
+    </div>
+    <div class="col">
+    <label for="day">Select a date</label>
+<select name="day" class="form-control" >
 <option value="day" selected disabled  style="color:gray">day</option>
     <option value="1">1</option>
     <option value="2">2</option>
@@ -58,32 +63,38 @@
     <option value="21">31</option>
 </select> <br>
 @error('day'){{ $message }}@enderror <br>
-
-<label for="time">Select a date</label>
-<select name="time" >
-<option value="time" selected disabled  style="color:gray">time</option>
+    </div>
+    <div class="col">
+    <label for="time">Select a date</label>
+<select name="time" class="form-control">
+<option value="time"  selected disabled  style="color:gray">time</option>
     <option value="10">10.00AM</option>
     <option value="11">11.00AM</option>
     <option value="12">12.00AM</option>
     <option value="2">2.00PM</option>
     <option value="3">3.00PM</option>
     <option value="4">4.00PM</option>
-</select> <br>
-@error('time'){{ $message }}@enderror <br>
-
-<input type="submit" name="submit" value="submit">
+</select> 
+@error('time'){{ $message }}@enderror 
+    </div>
+  </div>
+<input type="submit"  class="btn btn-success" style="float:right"name="submit" value="submit">
 </form>
 @php
 $total = 1200 ;
 @endphp
 
+@if($soilTests)
 <form action="/soil-test/proceed-to-pay/{{ $soilTests->id }}" method="POST">
     @csrf
-<p>Amount : 1200</p>
+<p>Amount : 1200 + tax</p>
 <input type="checkbox" name="agree" > Agree to terms and conditions <br>
 @error('agree'){{ $message }}@enderror <br>
 <input type="hidden" name="total" value="{{ $total }}">
-<input type="submit" value="submit" name="submit">
+<input type="submit" class="btn btn-success"value="submit" name="submit">
 </form>
-
+</div>
+  <!-- </div> -->
+@else
+@endif
 @endsection

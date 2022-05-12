@@ -26,6 +26,7 @@ class PurchaseController extends Controller
 
         $id = $request->session()->get('loggedUser');
         $totalAmount = $request->session()->get('totalAmount');
+        $cartItems = Cart::latest()->where('user_id', $id)->get();
 
         $addresses = Address::latest()
             ->where('user_id', $id)->get();
@@ -35,7 +36,7 @@ class PurchaseController extends Controller
 
         if ($totalAmount) {
 
-            return view('checkout.index', ['title' => 'Checkout page', 'addresses' => $addresses, 'paymentDetails' => $paymentDetails]);
+            return view('checkout.index', ['title' => 'Checkout page', 'addresses' => $addresses, 'paymentDetails' => $paymentDetails,'cartItems'=>$cartItems]);
         } else {
             return redirect('/');
         }
@@ -61,14 +62,14 @@ class PurchaseController extends Controller
         $user = Purchase::where('payment_id', $data['razorpay_order_id'])->first();
         // return $user;
         $user->payment_done = true;
-        // $user->rezorpay_id = $data['razorpay_payment_id'];
+        $user->razorpay_id = $data['razorpay_payment_id'];
         
         $save=$user->save();
         
 
         // $save=$user->save();
      if($save)
-         return "<script>alert('payment successfuly done');</script>";
+         return redirect('/orders')->with('msg','Payment and Order Is Successfuly Added');
      else
      return "<script>alert('payment Failed try Again');</script>";
     
@@ -151,16 +152,17 @@ public function Transaction(Request $request)
 
         if ($request->payment_method == "cod") {
             $request->validate([
+                
                 'selected_address' => 'required',
             ]);
         } else if ($request->payment_method == "card") {
 
             $request->validate([
 
-                'card_number' => 'required',
-                'expiry_month' => 'required',
-                'expiry_year' => 'required',
-                'cvv' => 'required',
+                'card_number' => 'required|digits:16',
+                'expiry_month' => 'required|digits:2',
+                'expiry_year' => 'required|digits:4',
+                'cvv' => 'required|digits:3',
                 'selected_address' => 'required',
 
             ]);
@@ -252,7 +254,7 @@ public function Transaction(Request $request)
                     
                 ]);
 
-                // dd($charge);
+                dd($charge);
 
                 if ($charge['status'] == 'succeeded') {
 

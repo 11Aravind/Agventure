@@ -39,6 +39,7 @@
 
 
 </style>
+<br> <br> <br>
 
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -49,13 +50,13 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src=" {{ asset('img3.jpg') }}" alt="First slide" width="1280" height="500" >
+      <img class="d-block w-100" src=" {{ asset('img1.png') }}" alt="First slide" width="1100" height="400" >
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="{{ asset('img1.jpg') }}" alt="Second slide" width="1280" height="500" >
+      <img class="d-block w-100" src="{{ asset('img2.png') }}" alt="Second slide" width="1280" height="500" >
     </div> 
     <div class="carousel-item">
-      <img class="d-block w-100" src="{{ asset('img2.jpg') }}" alt="Third slide" width="1280" height="500" >
+      <img class="d-block w-100" src="{{ asset('img2.png') }}" alt="Third slide" width="1280" height="500" >
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -78,9 +79,9 @@
 <div class="row" style="padding: 29px;">
   -->
    <!-- ------------------- -->
-   @if ($products->count())
+   <!-- @if ($products->count())
 
-    @foreach($products as $product)
+    @foreach($products as $product) -->
    
   <!-- <div class="col-sm-3" style="padding: 18px 30px 11px 45px;">
   <div class="card" style="width: 15rem;">

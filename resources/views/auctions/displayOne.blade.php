@@ -59,17 +59,19 @@ Auction Duration:&nbsp{{$auction->duration}} hr<br>
    <div class="container">
    <div class="col-12">
    <label for="amount">Bid Amount</label>
-    <input type="text" class="form-control" name="amount">
-    @if(Session::get('fail'))
-       <span class="errormsg"> {{ Session::get('fail')  }}</span>
-    @endif
-    @error('amount'){{ $message }}@enderror 
-   </div>
-    <input type="checkbox" style="margin-left: 20px;" name="agree" > Agree to terms and conditions <br> <br>
-    <span class="errormsg">  @error('agree'){{ $message }}@enderror </span> 
-    <input type="submit" name="submit" class="btn btn-success" value="Enter Auction">
-   </div>
-</form>
+    <input type="text" class="form-control"  name="amount"><br>
+    @error('amount'){{ $message }}@enderror <br>
+    <input type="checkbox" name="agree" > Agree to terms and conditions <br>
+    @error('agree'){{ $message }}@enderror <br> 
+    <input type="submit" class="btn btn-success" name="submit" value="Enter Auction">
+</form> <br>
+<!-- <span class="successmsg"><b><h3>success</h3></b></span>   -->
+@if(Session::get('success'))
+<span class="successmsg"><b><h3>{{ Session::get('success')  }}</h3></b></span>  
+@endif
+@if(Session::get('fail'))
+<span class="errormsg">{{ Session::get('fail')  }}</span>
+ @endif
 
 
 

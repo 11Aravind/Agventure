@@ -50,7 +50,7 @@ $total += ($item->machine->price) * $item->count;
 @endphp
 @endif
 @endforeach
-</table>
+<p>Total Amount: {{ $total }}</p>
 @if($cartItems->count()>0)
 <form action="/cart/proceed-to-buy" method="POST">
 @csrf

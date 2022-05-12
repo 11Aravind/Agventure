@@ -35,7 +35,7 @@ font-size: 22px;
            asset('images/'. $auction->item->image)}}" alt="{{ $auction->item->image }}" style="  margin-left: 144px;" height="250px">
     </div>
     <div class="right">
-    <span class="maincontent"> {{ $product->name }}</span> <br>
+    <span class="maincontent"> {{ $auction->name }}</span> <br>
 
 
 {{

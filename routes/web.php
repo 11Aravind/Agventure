@@ -62,8 +62,10 @@ Route::get('/machine/{id}', [MachineController::class, 'displayOne']);
 
 Route::get('/checkout', [PurchaseController::class, 'create'])->middleware('isLoggedIn');
 
-Route::post('/checkout', [PurchaseController::class, 'makeTransaction'])->middleware('isLoggedIn');
-
+// Route::post('/checkout', [PurchaseController::class, 'makeTransaction'])->middleware('isLoggedIn');
+// Transaction
+Route::post('/checkout', [PurchaseController::class, 'Transaction'])->middleware('isLoggedIn');
+Route::post('/pay' , [PurchaseController::class,'pay']);
 Route::get('/checkout/success', [PurchaseController::class, 'success']);
 
 Route::get('/checkout/failed', [PurchaseController::class, 'failed']);

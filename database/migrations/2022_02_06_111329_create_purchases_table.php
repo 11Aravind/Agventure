@@ -25,7 +25,10 @@ class CreatePurchasesTable extends Migration
             $table->foreignId('soil_test_id')->nullable();
             // $table->foreignId('machine_id')->nullable();
             // $table->foreignId('product_id')->nullable();
-            $table->string('payment_method');
+            // $table->string('payment_method');
+            $table->string('payment_id')->nullable();
+            $table->string('razorpay_id')->nullable();
+            $table->boolean('payment_done')->default(false);
             $table->string('status');
             $table->string('order_status');
             $table->timestamps();

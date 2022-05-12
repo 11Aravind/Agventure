@@ -12,6 +12,9 @@ use App\Models\User;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Exception;
 use Illuminate\Http\Request;
+use Monolog\SignalHandler;
+use Razorpay\Api\Api;
+use Razorpay\Api\Errors\SignatureVerificationError;
 
 class PurchaseController extends Controller
 {
@@ -50,6 +53,73 @@ class PurchaseController extends Controller
         return view('checkout.failed', ['title' => 'Failed page']);
     }
 
+    //for rezorpay
+
+    public function pay(Request $request){
+        $data = $request->all();
+       
+        $user = Purchase::where('payment_id', $data['razorpay_order_id'])->first();
+        // return $user;
+        $user->payment_done = true;
+        // $user->rezorpay_id = $data['razorpay_payment_id'];
+        
+        $save=$user->save();
+        
+
+        // $save=$user->save();
+     if($save)
+         return "<script>alert('payment successfuly done');</script>";
+     else
+     return "<script>alert('payment Failed try Again');</script>";
+    
+
+     
+ 
+}
+    //payment rout
+public function Transaction(Request $request)
+{
+    $id = $request->session()->get('loggedUser');
+    $user = User::findOrFail($id);
+    //fetch the cart items corresponding to current loggedin user
+    $cartItems = Cart::latest()->where('user_id', $id)->get();
+
+    //addressId
+    $addressId = $request->selected_address;
+
+    //find the address with the id sent from the view ( selected address )
+    $address = Address::findOrFail($addressId);
+
+    $auction_id = $request->session()->get('auctionId');
+    //total amount
+    $totalAmount = $request->session()->get('totalAmount');
+    $api = new Api('rzp_test_iKlM2rsXjuV7R1', 'ajKNMNZY1Q6NDIrk4N5jEaMP');
+    $order  = $api->order->create(array('receipt' => '123', 'amount' =>$totalAmount*100 , 'currency' => 'INR')); // Creates order
+    $orderId = $order['id']; 
+    //card details
+    $purchase = new Purchase();
+    $purchase->user_id = $id;//kitti
+    $purchase->address_id = $addressId; //kitti
+    // $purchase->card_number = $cardNumber;
+    $purchase->amount = $totalAmount;//kitti
+    $purchase->delivery_charge = 60;//kitti
+    $purchase->total = $totalAmount + 60;//kitti
+    $purchase->payment_id = $orderId;
+    // $purchase->payment_method = $paymentMethod;
+    $purchase->status = 'pending'; //kitti
+    $purchase->order_status = 'ordered'; //kitti
+    // $purchase->auction_id = $auctionId; //kitti
+   
+    $purchase->save();
+    $data = array(
+        'order_id' => $orderId,
+        'amount' => $totalAmount
+    );
+
+
+   
+    return back()->with('data', $data);
+}
     public function makeTransaction(Request $request)
     {
 

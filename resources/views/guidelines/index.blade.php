@@ -1,16 +1,11 @@
 @extends('layouts.adminLayout')
 @section('content')
-<<<<<<< HEAD
 <div class="top"><h3>Guidelines</h3><a href="/admin/create-guideline">Add Guidelines</a> </div>
 <div class="spacing">
+@if($guidelines->count() > 0)
 <!-- <h2>Guidelines</h2> -->
 <table class="table table-striped">
     <thead>
-=======
-<h2>Guidelines</h2>
-@if($guidelines->count() > 0)
-<table>
->>>>>>> 04485f0a4dbcb71da08175ffea340b9fdad17a64
     <tr>
         <th>Desease Name</th>
         <th>Short Description</th>
@@ -33,14 +28,12 @@
 </tbody>
 @endforeach
 </table>
-<<<<<<< HEAD
 </div>
 
 
-
-=======
 @else
 <p>No guidelines yet. Please check back later.</p>
 @endif
->>>>>>> 04485f0a4dbcb71da08175ffea340b9fdad17a64
+
+
 @endsection

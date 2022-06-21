@@ -117,12 +117,57 @@
    @else
        <p>No products yet. Please check back later.</p>
    @endif -->
-<br> <br> <br> <br>
+   <style>
+    .maindiv{
+        display:flex;
+        margin: 23px;
+    }
+    .left{
+        flex: .4;
+    }
+    .right{
+        flex:.6;
+        padding: 24px;
+    }
+    .maincontent{
+        font-weight: bolder;
+font-size: 22px;
+    }
+    #addtocart{
+        color:white;
+        background-color: green;
+        margin-top: 9px;
+    }
+</style>
+<!-- <h2>product</h2> -->
+<h2 class="text-center">About Us</h2>
+<div class="maindiv">
+    <div class="left">
+    <img src="{{ asset('sammy-man-gardener-digging-up-a-carrot.png')}}" alt="plant image" height="350px">
+    </div>
+    <div class="right">
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod expedita commodi fugiat. Cum quae placeat iusto dolores nostrum veritatis aspernatur pariatur sequi nulla, quidem ea incidunt optio atque fugiat asperiores!
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis maxime similique assumenda ipsa veritatis? Et fugiat sit voluptatum magnam aliquam impedit repellat sint perspiciatis quos laboriosam, obcaecati molestiae explicabo illum?
+    </div>
+</div><br> <br> <br> <br>
+<div class="maindiv">
+<div class="left" style="flex:.6">
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod expedita commodi fugiat. Cum quae placeat iusto dolores nostrum veritatis aspernatur pariatur sequi nulla, quidem ea incidunt optio atque fugiat asperiores!
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis maxime similique assumenda ipsa veritatis? Et fugiat sit voluptatum magnam aliquam impedit repellat sint perspiciatis quos laboriosam, obcaecati molestiae explicabo illum?
+    </div>
+    <div class="right" style="flex:.4">
+    <img src="{{ asset('sammy-man-and-woman-shopping.png')}}" alt="plant image" height="350px">
+    </div>
+   
+</div>
+
+
+<!-- <br> <br> <br> <br>
 <div class="img container"><img src="{{ asset('sammy-man-gardener-digging-up-a-carrot.png')}}" alt="plant image" height="350px"></div>
 <p class=" text container">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod expedita commodi fugiat. Cum quae placeat iusto dolores nostrum veritatis aspernatur pariatur sequi nulla, quidem ea incidunt optio atque fugiat asperiores!</p>
 </div>
-<br> 
-<div class="img container" ><img src="{{ asset('sammy-man-and-woman-shopping.png')}}" alt="plant image" height="350px"></div>
+<br>  -->
+<!-- <div class="img container" ><img src="{{ asset('sammy-man-and-woman-shopping.png')}}" alt="plant image" height="350px"></div>
 <p class=" text container">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem, libero voluptate. Quisquam iure reiciendis placeat quibusdam commodi assumenda dolorem amet vel ipsam. Minima possimus nostrum eligendi est neque voluptatem repudiandae!</p>
 </div>
 <br>
@@ -130,6 +175,6 @@
  <div class="img container-sm" ><img src="{{ asset('sammy-plant.png')}}" alt="plant image" height="350px"></div>
  <p class=" text container">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur vero incidunt debitis sunt consequatur nulla impedit ratione ea quibusdam delectus non, placeat in magni quaerat ab nobis, aperiam nostrum enim.</p>
 </div>
-<br>
+<br> -->
 
 @endsection

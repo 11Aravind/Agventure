@@ -17,39 +17,7 @@ $total = 0 ;
 @endphp
 <div>
   <br> <br>
-@if($cartItems)
-<h3>Purchase Summary</h3>
-<br>
-@foreach($cartItems as $item)
-@if($item->product_id)
-<span> {{ $item->product->name }} <span> {{ $item->product->price }} 
-<img src="{{ asset('images/'. $item->product->image)}}" alt="{{ $item->product->image }} " height="20px"> 
-{{$item->count}}
-<a href="cart/delete-cart-item/{{$item->id}}">Delete</a> <br>
-</span>
-<br>
-@php
-$total += ($item->product->price) * $item->count;
-@endphp
-@endif
-@if($item->machine_id)
-<span> {{ $item->machine->name }} 
-<img src="{{ asset('images/'. $item->machine->image)}}" alt="{{ $item->machine->image }} " height="20px"> 
-{{$item->count}}
-<a href="cart/delete-cart-item/{{$item->id}}">Delete</a> <br>
-</span>
- <br>
-@php
-$total += ($item->machine->price) * $item->count;
-@endphp
-@endif
-@endforeach
-<br>
-<p>Total Amount: {{ $total }} + delivery charges</p>
-</div>
-@endif
-<br> <br>
-<div>
+
 
 
 <h5 > Add New Address<button class="add_newaddress" onclick="toggleAdressForm()"> + </button></h5>
@@ -139,9 +107,12 @@ $total += ($item->machine->price) * $item->count;
 <input  type="radio" name="payment_method" value="card" onclick="displayPaymentForm()">&nbsp &nbsp  Credit/Debit/ATM Card<br> 
 
 <div id="payment" class="shadow-none p-3 mb-5 bg-light rounded" style="display:none">
-<h5>Add Payment Details</h5>
+<!-- <h5>Add Payment Details</h5> -->
+
+<input type="submit" value="Net Banking" class="btn btn-success" style="margin-top: 12px;" name="submit">
 <!-- new  -->
-<div class="row">
+
+<!-- <div class="row">
     <div class="col">
     <label for="card_number">Card Number</label> 
 <input type="text" class="form-control" name="card_number" > <br>
@@ -164,11 +135,11 @@ $total += ($item->machine->price) * $item->count;
 <input type="password" class="form-control" name="cvv"><br>
 <span>@error('cvv'){{ $message }}@enderror</span> 
     </div>
-  </div>
+  </div> -->
 <!-- new end  -->
 </div>
 <input  type="radio" name="payment_method" value="cod" onclick="hidePaymentForm()">&nbsp  &nbspCOD<br>
-<input type="submit" value="PROCEED" class="btn btn-success" style="margin-top: 12px;" name="submit">
+<!-- <input type="submit" value="PROCEED" class="btn btn-success" style="margin-top: 12px;" name="submit"> -->
 </form>
 
 @if(Session::has('stripe_error'))
@@ -212,10 +183,10 @@ function hidePaymentForm() {
           data-currency="INR"
     data-order_id="{{Session::get('data.order_id')}}"
           data-buttontext="Pay with Razorpay"
-          data-name="Aravind"
+          data-name="Agventure"
           data-description="Test transaction"
          
-          data-theme.color="#F37254"
+          data-theme.color="#28a745"
       ></script>
       <input type="hidden" custom="Hidden Element" name="hidden">
       </form>

@@ -58,7 +58,7 @@ class AuctionController extends Controller
     {
 
         $request->validate([
-            'starting_price' => 'required',
+            'starting_price' => 'required|numeric:min:2|max:6',
             'duration' => 'required'
         ]);
         $auction = new Auction();
@@ -203,7 +203,7 @@ class AuctionController extends Controller
 
        
 
-        return redirect('/auction/results' )->back()->with('success', 'Succesfully placed bid!');;
+        return back()->with('success', 'Succesfully placed bid!');;
     }
 
 

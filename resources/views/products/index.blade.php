@@ -44,6 +44,9 @@
         </td>
         <td>
  
+    {{
+        $product->category->name  
+    }}
         </td>
         <td>
             {{

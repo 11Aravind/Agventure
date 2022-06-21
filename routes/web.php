@@ -257,17 +257,17 @@ Route::get('/admin/auction/reject/{id}', [AuctionController::class, 'reject'])->
 
 Route::get('/user/complaints', [ComplaintController::class, 'index'])->middleware('isUser');
 
-Route::get('/user/complaint/{id}', [ComplaintController::class, 'show'])->middleware('isUser');
+Route::get('/user/complaint/{id}', [ComplaintController::class, 'show'])->middleware('isLoggedIn');
 
-Route::get('/user/create-complaint', [ComplaintController::class, 'create'])->middleware('isUser');
+Route::get('/user/create-complaint', [ComplaintController::class, 'create'])->middleware('isLoggedIn');
 
-Route::post('/user/create-complaint', [ComplaintController::class, 'store'])->middleware('isUser');
+Route::post('/user/create-complaint', [ComplaintController::class, 'store'])->middleware('isLoggedIn');
 
-Route::get('/user/update-complaint/{id}', [ComplaintController::class, 'update'])->middleware('isUser');
+Route::get('/user/update-complaint/{id}', [ComplaintController::class, 'update'])->middleware('isLoggedIn');
 
-Route::get('/user/update-complaint', [ComplaintController::class, 'change'])->middleware('isUser');
+Route::get('/user/update-complaint', [ComplaintController::class, 'change'])->middleware('isLoggedIn');
 
-Route::get('/user/delete-complaint/{id}', [ComplaintController::class, 'destroy'])->middleware('isUser');
+Route::get('/user/delete-complaint/{id}', [ComplaintController::class, 'destroy'])->middleware('isLoggedIn');
 
 //guideline routes
 

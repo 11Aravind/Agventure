@@ -34,14 +34,14 @@ class ItemController extends Controller
     public function store(Request $request){
 
 
-        // $validatedData = $request->validate([
+        $validatedData = $request->validate([
 
-        //     'item_name' => 'required|min:2',
-        //     'item_description' => 'required',
-        //     'category' => 'required',
-        //     'quantity' => 'required',
-        //     'item_image' => 'required|mimes:jpg,png,jpeg|max:5048',
-        // ]);
+            'item_name' => 'required|min:2|alpha|max:250',
+            'item_description' => 'required|min:5|max:1000',
+            'category' => 'required',
+            'quantity' => 'required|numeric|min:2|max:6',
+            'item_image' => 'required|mimes:jpg,png,jpeg|max:5048',
+        ]);
         $newImageName = time().'-'. $request->item_name.'.'. 
         $request->item_image->extension();
 
@@ -73,10 +73,11 @@ class ItemController extends Controller
     public function change(Request $request){
         $validatedData = $request->validate([
 
-            'item_name' => 'required|min:2',
-            'item_description' => 'required',
+            
+            'item_name' => 'required|min:2|alpha|max:250',
+            'item_description' => 'required|min:5|max:1000',
             'category' => 'required',
-            'quantity' => 'required',
+            'quantity' => 'required|numeric|min:2|max:6',
             // 'item_image' => 'required|mimes:jpg,png,jpeg|max:5048',
         ]);
         // $newImageName = time().'-'. $request->item_name.'.'. 

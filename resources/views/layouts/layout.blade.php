@@ -111,7 +111,7 @@ margin: 25px;
     }
     .top h3 {
   flex: .9;
-    background-color: #b2b2b2;
+    /* background-color: #b2b2b2; */
     bottom: 0px;
 }  */
 .errormsg{
@@ -131,10 +131,12 @@ margin: 25px;
    
 <div class="menus"><a href="/tips">Tips</a>
 <a href="/auctions">Auction</a>
+
+<a href="/auction/results">auction result</a>
 <a href="/guidelines">Guideline</a>
 <a href="/soil-test/create-soil-test">soil Text</a>
 <a href="/weather">weather</a>
-
+<a href=" https://wa.me/098848310248">chat</a>
 <a href="/user/create-complaint">complaint</a></div> 
 </div>
         <ul class="top-nav-bar">

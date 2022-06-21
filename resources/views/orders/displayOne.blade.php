@@ -1,33 +1,34 @@
 @extends('layouts.layout')
 @section('content')
 <h2>Order</h2>
-<p>
-@foreach($order->products as $product)
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@foreach($order->products as $product)
 {{ $product->name}}
 @endforeach
 @foreach($order->machines as $machine)
 {{ $machine->name}}
-@endforeach
-</p> 
-   <br>
-<p>
-{{  $order->user->name }}
-</p>
-    <br>
-<p>
-{{$order->total}}
-</p>
-    <br>
-<p>
-{{$order->status}}
-</p>
-    <br>
-<p>
-{{$order->order_status}}
-</p>
-    <br>
-<p>
-   <a href="/orders/cancel-order/{{$order->id}}">Cancel</a>`       
-</p>
+@endforeach</td>
+<td>{{  $order->user->name }}</td>
+<td>{{$order->total}}</td>
+<td>{{$order->status}}</td>
+<td>{{$order->order_status}}</td>
+<td><a href="/orders/cancel-order/{{$order->id}}">Cancel</a>` </td>
+            </tr>
+        </tbody>
+    </table>
+
+
 </div>
 @endsection
